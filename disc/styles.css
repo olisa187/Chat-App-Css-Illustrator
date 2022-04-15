@@ -100,7 +100,9 @@ a{
     display: inline-block;
     text-decoration: none;
 }
-
+a .font_indent{
+    display: none;
+}
 /* utilities */
 
 .flex{
