@@ -118,7 +118,7 @@ a .font_indent{
 
 /* mobile app styling */
 .mobile-app{
-    max-width: 30em;
+    max-width: 27em;
     background-color: var(--clr-White);
     padding: 1em;
     border-radius: 2.5em;
