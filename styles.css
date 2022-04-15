@@ -1,0 +1,317 @@
+/* Chat app css illustrator */
+.display{
+    display: none;
+}
+/* Resets */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+
+/* custom properties */
+:root{
+    /* ----Primary Text----- */
+    --clr-Pale-Violet: hsl(276, 100%, 81%);  /* (sub-heading at the top of the app UI) */
+    --clr-Moderate-Violet: hsl(276, 55%, 52%); /* (chat on the left) */
+    --clr-Desaturated-Dark-Violet: hsl(271, 15%, 43%); /* (chat on the right) */
+    --clr-Grayish-Blue: hsl(206, 6%, 79%); /* (placeholder text) */
+    --clr-Very-Dark-Desaturated-Violet: hsl(271, 36%, 24%); /* (main heading) (submit button background) */
+    --clr-Dark-Grayish-Violet: hsl(270, 7%, 64%); /* (paragraph) */
+
+    /* Gradients colors */
+    --clr-Light-Magenta: hsl(293, 100%, 63%)  ;
+    --clr-Light-Violet: hsl(264, 100%, 61%);
+
+    /* Secondary Colors */
+    --clr-White: hsl(0, 0%, 100%);
+    --clr-Light-Grayish-Violet : hsl(270, 20%, 96%); /* (app background) */
+    --clr-Very-Light-Magenta : hsl(289, 100%, 72%); /* (radio button outline) */
+
+    font-size: 10px;
+
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    /* font-size: 1rem; */
+    line-height: 1.6;
+    background-color: var(--clr-Light-Grayish-Violet);
+    color: var(--clr-Dark-Grayish-Violet);
+    position: relative;
+
+    overflow-x: hidden;
+
+    place-content: center;
+}
+
+body::before{
+    content: '';
+    width: clamp(200px,30%,35em);
+    height: clamp(500px,90%,38em);
+   
+    background: linear-gradient(to bottom, var(--clr-Light-Magenta), var(--clr-Light-Violet));
+    border-bottom-left-radius: 19.5em;
+    border-bottom-right-radius: 15em;
+    
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* adding css transform */
+    transform: translateX(-45px);
+
+}
+
+body::after{
+    content: '';
+    position: fixed;
+    width: clamp(200px,30%,65em);
+    height: 80%;
+    background: var(--clr-Grayish-Blue);
+    opacity: .1;
+    right: 0;
+    bottom: 0;
+    border-top-right-radius: 19.5em;
+    border-top-left-radius: 20.75em;
+    transform: translateX(80px);
+    z-index: -1;
+}
+
+.container{
+    max-width: 90em;
+    margin: 0 auto;
+    padding-inline: 1em;
+}
+
+.main-sect{
+    max-width: 80em;
+    margin: 4em auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2em;
+}
+
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* utilities */
+
+.flex{
+    display: flex;
+    place-items: center;
+}
+
+.flow * + *{
+    margin-top: 1em;
+}
+
+/* ......................main styling...................... */
+
+/* mobile app styling */
+.mobile-app{
+    max-width: 30em;
+    background-color: var(--clr-White);
+    padding: 1em;
+    border-radius: 2.5em;
+}
+
+.mobile-app__content{
+    background-color: var(--clr-Light-Grayish-Violet);
+    border-radius: 2em;
+
+}
+
+.mobile-app__content>.mobile-app__content__user_interface{
+    background: linear-gradient(to right, var(--clr-Light-Violet), var(--clr-Light-Magenta));
+    color: var(--clr-White);
+    border-radius: 2em 2em 1em 1em;
+    padding: 3em 1.8em  1em 1.8em;
+    position: relative;
+}
+
+.mobile-app__content>.mobile-app__content__user_interface::before{
+    content: '';
+    width: 50%;
+    height: 2em;
+    background-color: var(--clr-White);
+    position: absolute;
+    top: 0;
+    left: 25%;
+    border-radius: 0 0 1.4em 1.4em;
+}
+.ellipsis{
+    margin: 0 0 0 auto;
+}
+
+a > i{
+    color: var(--clr-White);
+}
+/* remove margin from the user profile */
+.user-profile{
+    margin-top: 0;
+}
+
+.user-profile>img{
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid var(--clr-White);
+}
+
+.user-profile  *{
+    margin: 0 0 0 .5em;
+}
+.user-profile>.user-profile__details>.user_name{
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+.user-profile>.user-profile__details>.user_status{
+    color: var(--clr-Grayish-Blue);
+    font-size: .85rem;
+}
+
+/* ......................... chat area.........................  */
+.mobile-app__content__chat_area{
+    padding-inline: 1em;
+    padding-bottom: 2.5em;
+    font-size: .8rem;
+}
+.mobile-app__content__chat_area > .left{
+    border-radius: 2em 0 2em 0;
+    max-width: 60%;
+    color: var(--clr-Moderate-Violet);
+    background-color: hsla(206, 6%, 79%, 0.2);
+    padding: 1em;
+}
+.mobile-app__content__chat_area > .right{
+    border-radius: 0 2em  0 2em ;
+    max-width: max-content;
+    color: var(--clr-Desaturated-Dark-Violet);
+    background-color: var(--clr-White);
+    padding: 1em;
+    margin-left: auto;
+}
+
+.mobile-app__content__chat_area .dogs{
+    width: 100%;
+    justify-content: end;
+    
+}
+.mobile-app__content__chat_area .dogs > img{
+    width: 5rem;
+    margin: 2em 0 0 1em;
+    border-radius: 1em;
+}
+.mobile-app__content__chat_area>:nth-child(5){
+    margin-bottom: 2em;
+}
+.mobile-app__content__chat_area .pricing{
+    max-width: 70%;
+    background: linear-gradient(to right, var(--clr-Light-Magenta), var(--clr-Light-Violet));
+    color: var(--clr-White);
+}
+.mobile-app__content__chat_area .pricing > *{
+    margin: 0 .5em 0 0 ;
+}
+.mobile-app__content__chat_area .pricing > .lock{
+    width: 15em;
+}
+.mobile-app__content__chat_area .pricing > .amount{
+    margin-left: auto ;
+}
+.mobile-app__content__chat_area .pricing>.amount{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.mobile-app__content__chat_area form{
+    background-color: var(--clr-White);
+    border-radius: 3em;
+    padding: 0.6em;
+    margin-top: 1.5em;
+    justify-content: center;
+    
+}
+.mobile-app__content__chat_area form>input{
+    border: none;
+    padding-left: 1em;
+    width: 85%;
+}
+.mobile-app__content__chat_area form>input::placeholder{
+    color: var(--clr-Grayish-Blue);
+}
+.mobile-app__content__chat_area form > a{
+    width: 3.5em;
+    height: 3.5em;
+    background-color: var(--clr-Very-Dark-Desaturated-Violet);
+    border-radius: 50%;
+    padding: .3em;
+
+    justify-content: center;
+    margin-left: auto;
+}
+
+.mobile-app__content__chat_area form  *{
+    margin-top: 0;
+}
+
+/* booking section */
+.booking{
+    align-self: center;
+    font-size: 14.5px;
+}
+
+.booking > h2{
+    font-size: 3rem;
+    color: var(--clr-Very-Dark-Desaturated-Violet);
+}
+
+/* ................ Footer ................. */
+
+footer{
+    margin: 2em 0;
+    font-size: 11px; 
+    text-align: center;
+
+}
+
+footer > .attribution a { 
+    color: hsl(228, 45%, 44%);
+}
+
+/* mobile version */
+@media (max-width: 650px){
+    body::before{
+        height: 60%;
+       
+    }
+    body::after{
+        width: clamp(200px,30%,30em);
+        height: 60%;
+        transform: translateX(40px);
+       
+    }
+
+    .container{
+        padding-inline: 3em;
+    }
+    .main-sect{
+        grid-template-columns: 1fr;
+        
+    }
+    .booking{
+        text-align: center;
+    }
+}
+
+@media (max-width: 499px){
+    :root{
+        font-size: 14px;
+    }
+}
