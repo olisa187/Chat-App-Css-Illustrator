@@ -50,12 +50,12 @@ body{
 
 body::before{
     content: '';
-    width: clamp(200px,30%,35em);
+    width: clamp(200px,30%, 50em);
     height: clamp(500px,90%,38em);
    
     background: linear-gradient(to bottom, var(--clr-Light-Magenta), var(--clr-Light-Violet));
-    border-bottom-left-radius: 19.5em;
-    border-bottom-right-radius: 15em;
+    border-bottom-left-radius: 22.5em;
+    border-bottom-right-radius: 19em;
     
     z-index: -1;
     position: fixed;
